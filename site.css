@@ -459,11 +459,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-align: center;
 }
 .gear-bar__title {
-  font-family: "Inter", system-ui, sans-serif;
-  font-weight: 500;
+  font-family: var(--f-display);
   font-size: clamp(48px, 7vw, 96px);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.005em;
   color: var(--bone);
 }
 
