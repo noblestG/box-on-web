@@ -903,8 +903,8 @@ body[data-theme="light"] .strip__cta { color: var(--ink); border-color: var(--in
   display: grid;
   place-items: center;
   background:
-    radial-gradient(ellipse at 50% 100%, rgba(238, 0, 24, 0.06), transparent 60%),
-    linear-gradient(180deg, #0a0a0a 0%, #060606 100%);
+    radial-gradient(ellipse at center, rgba(6,6,6,0) 30%, rgba(6,6,6,0.55) 100%),
+    url("uploads/legend-match.jpg") center center / cover no-repeat #060606;
   transition: background 600ms ease;
   isolation: isolate;
   overflow: hidden;
@@ -914,7 +914,7 @@ body[data-theme="light"] .strip__cta { color: var(--ink); border-color: var(--in
   background:
     radial-gradient(ellipse at 50% 50%, rgba(238, 0, 24, 0.45), transparent 65%),
     radial-gradient(ellipse at 50% 100%, rgba(238, 0, 24, 0.25), transparent 70%),
-    #1a0003;
+    url("uploads/legend-match.jpg") center center / cover no-repeat #1a0003;
 }
 .experience-root::before {
   content: "";
