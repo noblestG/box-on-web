@@ -558,6 +558,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   margin-bottom: 20px;
   opacity: 0.85;
 }
+.gear-card__eyebrow--bold {
+  font-weight: 700;
+  opacity: 1;
+}
 .gear-card__line { margin-bottom: 16px; }
 .gear-card__line:last-child { margin-bottom: 0; }
 .gear-card__k {
