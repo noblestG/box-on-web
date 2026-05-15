@@ -177,6 +177,14 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   width: 100%;
   height: 100%;
 }
+.hero__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
 /* Hero placeholder — dark editorial frame indicating where a photo goes */
 .hero__placeholder {
@@ -251,7 +259,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: clamp(64px, 9.5vw, 168px);
   line-height: 0.86;
   letter-spacing: 0.005em;
-  color: var(--bone);
+  color: var(--red);
   text-transform: uppercase;
   max-width: 64%;
 }
@@ -301,7 +309,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* Bottom-left intro block — title + rule + body */
 .hero__intro {
   max-width: 360px;
-  color: var(--ink);
+  color: var(--red);
 }
 .hero__intro-title {
   font-family: "Inter", system-ui, sans-serif;
@@ -309,12 +317,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: clamp(20px, 2.1vw, 28px);
   line-height: 1.1;
   letter-spacing: -0.01em;
-  color: var(--ink);
+  color: var(--red);
 }
 .hero__intro-rule {
   width: 36px;
   height: 1px;
-  background: var(--ink);
+  background: var(--red);
   margin: 14px 0 12px;
 }
 .hero__intro-body {
@@ -322,7 +330,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-weight: 500;
   font-size: 12px;
   line-height: 1.55;
-  color: var(--ink);
+  color: var(--red);
 }
 .hero__meta {
   font-family: var(--f-mono);
@@ -342,7 +350,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   line-height: 0.88;
   letter-spacing: 0.01em;
   text-align: right;
-  color: var(--bone);
+  color: var(--red);
   text-transform: uppercase;
   justify-self: end;
 }
