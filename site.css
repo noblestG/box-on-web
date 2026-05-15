@@ -932,7 +932,7 @@ body[data-theme="light"] .strip__cta { color: var(--ink); border-color: var(--in
 
 /* chrome header */
 .chrome {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -944,6 +944,9 @@ body[data-theme="light"] .strip__cta { color: var(--ink); border-color: var(--in
   padding: 22px 28px;
   pointer-events: none;
 }
+
+.status-line,
+.telemetry { display: none; }
 .chrome a,
 .chrome button { pointer-events: auto; }
 .chrome .logo {
