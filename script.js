@@ -36,6 +36,7 @@
   const hitFlash = document.getElementById("hit-flash");
   const onFlash = document.getElementById("on-flash");
   const impactStamp = document.getElementById("impact-stamp");
+  const moveCallout = document.getElementById("move-callout");
 
   const vfFps = document.getElementById("vf-fps");
   const vfHands = document.getElementById("vf-hands");
@@ -65,6 +66,9 @@
     prevWrists: { L: null, R: null },
     handCount: 0,
     cameraOk: false,
+    lastMoveAt: 0,
+    lastHandsHighAt: 0,
+    lastDuckAt: 0,
   };
 
   /* ---------- helpers ---------- */
@@ -234,9 +238,11 @@
       const tNow = performance.now();
       checkPunch("L", L, tNow);
       checkPunch("R", R, tNow);
+      checkDucking(L, R, tNow);
     } else {
       state.prevWrists.L = null;
       state.prevWrists.R = null;
+      state.lastHandsHighAt = 0;
     }
   }
 
@@ -248,21 +254,59 @@
     const dt = (tNow - prev.t) / 1000;
     if (dt <= 0) return;
 
-    // z velocity (negative = forward toward cam)
-    const dz = (w.z - prev.z) / dt;
-    // 2D speed
+    // velocity components — MediaPipe coords: y grows DOWN, z grows AWAY from cam
     const dx = (w.x - prev.x) / dt;
     const dy = (w.y - prev.y) / dt;
+    const dz = (w.z - prev.z) / dt;
+    const absX = Math.abs(dx);
+    const absY = Math.abs(dy);
+    const absZ = Math.abs(dz);
     const speed = Math.hypot(dx, dy);
 
     telSpd.textContent = speed.toFixed(2) + " m/s";
 
-    // forward thrust: z dropped fast OR speed spike in upper half
-    const thrust = (-dz) > 1.6 || (speed > 2.5 && w.y < 0.6);
+    // classify dominant axis — uppercut & hook first, fall back to straight
+    let move = null;
+    if (-dy > 1.6 && absY > absX * 1.2 && absY > absZ * 0.6) {
+      move = "UPPERCUT";
+    } else if (absX > 1.8 && absX > absY * 1.2) {
+      move = "HOOK";
+    } else if ((-dz) > 1.6 || (speed > 2.5 && w.y < 0.6)) {
+      move = "STRAIGHT";
+    }
+
     const cooled = (tNow - state.lastPunchAt) > 220;
-    if (thrust && cooled) {
+    if (move && cooled) {
+      showMove(move);
       registerPunch(side, speed);
     }
+  }
+
+  // Ducking: both wrists drop from guard (high) into lower frame within a window.
+  function checkDucking(L, R, tNow) {
+    if (!L || !R) return;
+    const avgY = (L.y + R.y) / 2;
+    if (avgY < 0.5) state.lastHandsHighAt = tNow;
+    const fell = avgY > 0.72 && state.lastHandsHighAt > 0 && (tNow - state.lastHandsHighAt) < 700;
+    const cooled = (tNow - state.lastDuckAt) > 900;
+    if (fell && cooled) {
+      state.lastDuckAt = tNow;
+      // ducking doesn't count as a punch — just announce
+      showMove("DUCKING");
+    }
+  }
+
+  function showMove(name) {
+    if (!moveCallout) return;
+    const tNow = performance.now();
+    // de-dupe: ignore same move firing within 180ms
+    if (name === showMove._last && tNow - state.lastMoveAt < 180) return;
+    state.lastMoveAt = tNow;
+    showMove._last = name;
+    moveCallout.textContent = name;
+    moveCallout.classList.remove("fire");
+    void moveCallout.offsetWidth;
+    moveCallout.classList.add("fire");
   }
 
   /* ============================================================
@@ -527,6 +571,12 @@
       if (state.mode !== "idle") disengage();
     } else if (e.code === "KeyP" && state.mode === "on") {
       registerPunch("sim", 1);
+    } else if (state.mode === "on" && (e.code === "KeyJ" || e.code === "KeyH" || e.code === "KeyU" || e.code === "KeyD")) {
+      // sim-mode shortcuts for the four moves
+      const map = { KeyJ: "STRAIGHT", KeyH: "HOOK", KeyU: "UPPERCUT", KeyD: "DUCKING" };
+      const move = map[e.code];
+      showMove(move);
+      if (move !== "DUCKING") registerPunch("sim", 1);
     }
   });
 
