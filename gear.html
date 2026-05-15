@@ -78,8 +78,11 @@
                 <span>14oz_Lace-up Glove in<br/>Bovine Leather, Crimson</span>
               </div>
             </div>
-            <div class="gear-card__media">
-              <image-slot id="gear-01a" shape="rect" src="uploads/%EC%9B%B9%EB%A0%88%ED%8D%BC2.jpg" placeholder="Drop front photo" style="background:transparent;"></image-slot>
+            <div class="gear-card__media gear-card__media--vr" data-vr-stack>
+              <img src="uploads/vr-1.jpg" alt="" class="vr-img is-active" />
+              <img src="uploads/vr-2.jpg" alt="" class="vr-img" />
+              <img src="uploads/vr-3.jpg" alt="" class="vr-img" />
+              <img src="uploads/vr-4.jpg" alt="" class="vr-img" />
             </div>
             <a href="#" class="gear-card__brand" aria-label="BOX:ON">
               <img src="assets/logo-symbol.png" class="gear-card__sym" alt="" />
@@ -250,6 +253,28 @@
         if (e.target.closest("a")) return;
         card.classList.toggle("is-flipped");
       });
+    });
+
+    // VR image stack — switch by cursor X position (4 vertical zones)
+    document.querySelectorAll("[data-vr-stack]").forEach((stack) => {
+      const imgs = stack.querySelectorAll(".vr-img");
+      const card = stack.closest(".gear-card");
+      if (!card || imgs.length === 0) return;
+      let activeIdx = 0;
+      const setActive = (idx) => {
+        if (idx === activeIdx) return;
+        imgs[activeIdx].classList.remove("is-active");
+        imgs[idx].classList.add("is-active");
+        activeIdx = idx;
+      };
+      card.addEventListener("mousemove", (e) => {
+        if (card.classList.contains("is-flipped")) return;
+        const rect = stack.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const idx = Math.min(imgs.length - 1, Math.max(0, Math.floor((x / rect.width) * imgs.length)));
+        setActive(idx);
+      });
+      card.addEventListener("mouseleave", () => setActive(0));
     });
   </script>
 
