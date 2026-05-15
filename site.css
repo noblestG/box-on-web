@@ -583,17 +583,16 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .gear-card__media--vr .vr-img.is-active { opacity: 1; }
 
-/* single full-bleed photo (no-crop) — used on card backs */
-.gear-card__media--photo {
-  display: block;
-  overflow: hidden;
+/* full-bleed photo face — image fills the entire card back, no overlays */
+.gear-card__face--photo {
+  padding: 0;
 }
-.gear-card__media--photo img {
+.gear-card__photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* bottom-left brand lockup (front) */
