@@ -506,6 +506,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .gear-card__face--front {
   background: #EBEBEB;
+  transition: visibility 0s linear 360ms;
+}
+.gear-card.is-flipped .gear-card__face--front {
+  visibility: hidden;
 }
 
 .gear-card__face--back {
