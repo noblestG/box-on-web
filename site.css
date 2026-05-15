@@ -755,12 +755,12 @@ body[data-theme="light"] .nav__util .pill { border-color: rgba(0,0,0,0.18); colo
 
 body[data-theme="light"] .hero { background: #ffffff; }
 body[data-theme="light"] .hero__media::after { display: none; }
-body[data-theme="light"] .hero__headline { color: var(--ink); }
+body[data-theme="light"] .hero__headline { color: var(--red); }
 body[data-theme="light"] .hero__cta { background: var(--ink); color: var(--bone); }
 body[data-theme="light"] .hero__cta:hover { background: var(--red); color: var(--bone); }
 body[data-theme="light"] .hero__cta .arrow { background: var(--bone); color: var(--ink); }
 body[data-theme="light"] .hero__cta:hover .arrow { background: var(--bone); color: var(--red); }
-body[data-theme="light"] .hero__secondary { color: var(--ink); }
+body[data-theme="light"] .hero__secondary { color: var(--red); }
 
 body[data-theme="light"] .strip {
   background: #ebebeb;
