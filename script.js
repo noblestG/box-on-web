@@ -435,6 +435,13 @@
     hudPunches.textContent = "0";
     hudCombo.textContent = "1";
 
+    // reset combat-scene to the first (guard) frame
+    const stack = document.querySelector("[data-combat-stack]");
+    if (stack) {
+      const imgs = stack.querySelectorAll(".combat-img");
+      imgs.forEach((el, i) => el.classList.toggle("is-active", i === 0));
+    }
+
     if (state.timerInterval) clearInterval(state.timerInterval);
     state.timerInterval = setInterval(updateRoundTimer, 250);
     updateRoundTimer();
@@ -458,6 +465,17 @@
     telLat.textContent = (10 + Math.floor(Math.random()*6)) + "ms";
   }
 
+  function cycleCombatImage() {
+    const stack = document.querySelector("[data-combat-stack]");
+    if (!stack) return;
+    const imgs = Array.from(stack.querySelectorAll(".combat-img"));
+    if (imgs.length === 0) return;
+    const cur = stack.querySelector(".combat-img.is-active");
+    const idx = cur ? imgs.indexOf(cur) : -1;
+    if (cur) cur.classList.remove("is-active");
+    imgs[(idx + 1) % imgs.length].classList.add("is-active");
+  }
+
   function registerPunch(side, intensity = 1) {
     const now = performance.now();
     // combo logic
@@ -470,6 +488,7 @@
     state.punches += 1;
     hudPunches.textContent = state.punches;
     hudCombo.textContent = state.combo;
+    cycleCombatImage();
 
     comboEl.classList.remove("pop");
     void comboEl.offsetWidth;

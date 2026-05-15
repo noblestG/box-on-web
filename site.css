@@ -1319,6 +1319,35 @@ body[data-theme="light"] .strip__cta { color: var(--ink); border-color: var(--in
 }
 .experience-root[data-mode="on"] .combat { opacity: 1; }
 
+/* Combat photo stack — Muhammad Ali poses that swap on each punch */
+.combat-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+.combat-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 28px rgba(238,0,24,0.55));
+  transition: opacity 380ms ease, transform 620ms cubic-bezier(.16,.84,.32,1);
+  pointer-events: none;
+}
+.combat-img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* hide the legacy SVG fighter — replaced by the photo stack */
+.fighter svg,
+.fighter .reticle { display: none; }
+.fighter { animation: none; filter: none; }
+
 .fighter {
   position: relative;
   width: 340px;
