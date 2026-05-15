@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOX:ON — Gear Up. Go On.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="site.css" />
+  <script src="image-slot.js"></script>
+  <script src="transitions.js" defer></script>
+</head>
+<body data-theme="light">
+
+  <!-- top marquee -->
+  <div class="marquee" role="presentation">
+    <div class="marquee__track" id="marquee-track">
+      <span>NEW DROP DROPPING SOON</span>
+      <span>ROUND 01 // BOX:ON FW26</span>
+      <span>FREE WORLDWIDE SHIPPING OVER $250</span>
+      <span>GEAR UP. GO ON.</span>
+      <span>NEW DROP DROPPING SOON</span>
+      <span>ROUND 01 // BOX:ON FW26</span>
+      <span>FREE WORLDWIDE SHIPPING OVER $250</span>
+      <span>GEAR UP. GO ON.</span>
+    </div>
+  </div>
+
+  <!-- nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav__brand" aria-label="BOX:ON home">
+      <img src="assets/logo-symbol.png" class="mark" alt="" />
+      <img src="assets/logo-type.png" alt="BOX:ON" />
+    </a>
+
+    <div class="nav__links">
+      <a href="gear.html">SHOP</a>
+      <a href="experience.html">LEGEND MATCH</a>
+      <a href="index.html#about">ABOUT</a>
+    </div>
+
+    <div class="nav__util">
+      <span class="pill"><span class="dot"></span>RD 01</span>
+      <a href="#" class="ico" aria-label="cart">
+        <svg viewBox="0 0 24 24"><path d="M6 7h12l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H8.7a1.5 1.5 0 0 1-1.5-1.3L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      </a>
+      <a href="#" class="ico" aria-label="wishlist">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" data-screen-label="01 Landing">
+      <div class="hero__media">
+        <image-slot
+          id="hero-model"
+          shape="rect"
+          src="uploads/%EC%9B%B9%EB%A0%88%ED%8D%BC1-34b621ce.jpg"
+          placeholder="Drop hero photo">
+        </image-slot>
+      </div>
+
+      <div class="hero__content">
+        <div class="hero__top">
+          <h1 class="hero__headline">
+            SYNCHRONIZE<br/>YOUR REALITY
+          </h1>
+          <a href="gear.html" class="hero__cta">
+            CHECK IT OUT
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="hero__bottom">
+          <div class="hero__intro">
+            <h2 class="hero__intro-title">THE NEW MR<br/>BOXING SYSTEM</h2>
+            <div class="hero__intro-rule"></div>
+            <p class="hero__intro-body">
+              Every space is designed to become your ring. Experience total immersion as our system syncs your reality with high-fidelity AR and haptic feedback—so you can focus on the fight, while we bridge the gap between your room and the stadium.
+            </p>
+          </div>
+          <div class="hero__secondary">
+            <span>LEGENDARY</span>
+            <span>MATCH<sup class="tm">™</sup></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- second strip — under hero -->
+    <section class="strip" id="about" data-screen-label="02 Manifesto">
+      <div>
+        <div class="strip__lead">
+          A WEARABLE<br/>
+          <span class="red">COMBAT</span> LAYER<br/>
+          FOR EVERY DAY.
+        </div>
+      </div>
+      <div>
+        <div class="strip__body">
+          <p>BOX:ON is built around one move — raise the glove, and the room becomes the ring. Wear it on the street. Throw the gloves on at the gym. The product is the trigger.</p>
+          <p>Each drop is a round: limited, numbered, signed. No restocks, no apologies. Step in or step off.</p>
+        </div>
+        <a href="experience.html" class="strip__cta">SEE IT LIVE →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="foot__brand">
+      <img src="assets/logo-type.png" alt="BOX:ON" />
+      <p>BOX:ON — a wearable combat layer. Gloves up, screen on. Built in Seoul, fought in everywhere.</p>
+    </div>
+    <div class="foot__col">
+      <h4>Shop</h4>
+      <a href="gear.html">Gloves</a>
+      <a href="gear.html">Headgear</a>
+      <a href="gear.html">Apparel</a>
+      <a href="gear.html">New Drop</a>
+    </div>
+    <div class="foot__col">
+      <h4>Inside</h4>
+      <a href="experience.html">Training</a>
+      <a href="#about">About</a>
+      <a href="#">Journal</a>
+      <a href="#">Lookbook</a>
+    </div>
+    <div class="foot__col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@boxon.gg">hello@boxon.gg</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="foot__legal">
+      <span>© 2026 BOX:ON. All rights reserved.</span>
+      <span>BUILD 2026.05.15-RC1</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BOX:ON — Get the Fit</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="site.css" />
+  <script src="image-slot.js"></script>
+  <script src="transitions.js" defer></script>
+</head>
+<body>
+
+  <!-- marquee -->
+  <div class="marquee" role="presentation">
+    <div class="marquee__track">
+      <span>ROUND 01 // BOX:ON FW26</span>
+      <span>FREE WORLDWIDE SHIPPING OVER $250</span>
+      <span>NEW DROP DROPPING SOON</span>
+      <span>GEAR UP. GO ON.</span>
+      <span>ROUND 01 // BOX:ON FW26</span>
+      <span>FREE WORLDWIDE SHIPPING OVER $250</span>
+      <span>NEW DROP DROPPING SOON</span>
+      <span>GEAR UP. GO ON.</span>
+    </div>
+  </div>
+
+  <!-- nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav__brand" aria-label="BOX:ON home">
+      <img src="assets/logo-symbol.png" class="mark" alt="" />
+      <img src="assets/logo-type.png" alt="BOX:ON" />
+    </a>
+
+    <div class="nav__links">
+      <a href="gear.html" class="is-active">SHOP</a>
+      <a href="experience.html">LEGEND MATCH</a>
+      <a href="index.html#about">ABOUT</a>
+    </div>
+
+    <div class="nav__util">
+      <span class="pill"><span class="dot"></span>RD 01</span>
+      <a href="#" class="ico" aria-label="cart">
+        <svg viewBox="0 0 24 24"><path d="M6 7h12l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H8.7a1.5 1.5 0 0 1-1.5-1.3L6 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+      </a>
+      <a href="#" class="ico" aria-label="wishlist">
+        <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <main data-screen-label="03 Get the Fit">
+
+    <!-- title bar — black band with centered title -->
+    <section class="gear-bar">
+      <h1 class="gear-bar__title">GET THE FIT</h1>
+    </section>
+
+    <!-- product grid (3-up) — flip cards: front dossier / back alt photo -->
+    <section class="gear-grid">
+
+      <article class="gear-card" data-card="01">
+        <div class="gear-card__inner">
+
+          <div class="gear-card__face gear-card__face--front">
+            <div class="gear-card__info">
+              <div class="gear-card__eyebrow">A COMBAT PROJECT</div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PARTICIPANT:</span>
+                <span>Yuna Park,<br/>Field Tester</span>
+              </div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PRODUCT:</span>
+                <span>14oz_Lace-up Glove in<br/>Bovine Leather, Crimson</span>
+              </div>
+            </div>
+            <div class="gear-card__media">
+              <image-slot id="gear-01a" shape="rect" src="uploads/%EC%9B%B9%EB%A0%88%ED%8D%BC2.jpg" placeholder="Drop front photo" style="background:transparent;"></image-slot>
+            </div>
+            <a href="#" class="gear-card__brand" aria-label="BOX:ON">
+              <img src="assets/logo-symbol.png" class="gear-card__sym" alt="" />
+              <img src="assets/logo-type.png" class="gear-card__type" alt="BOX:ON" />
+            </a>
+          </div>
+
+          <div class="gear-card__face gear-card__face--back">
+            <div class="gear-card__info gear-card__info--inverse">
+              <div class="gear-card__eyebrow">REVERSE / DETAIL VIEW</div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">SPEC:</span>
+                <span>Bovine, 14oz · Wrist-strap</span>
+              </div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PRICE:</span>
+                <span>USD 240 / RD 01</span>
+              </div>
+            </div>
+            <div class="gear-card__media">
+              <image-slot id="gear-01b" shape="rect" src="uploads/12.png" placeholder="Drop reverse photo" style="background:transparent;"></image-slot>
+            </div>
+            <a href="#" class="gear-card__cta">VIEW PRODUCT <span aria-hidden="true">→</span></a>
+          </div>
+
+        </div>
+      </article>
+
+      <article class="gear-card" data-card="02">
+        <div class="gear-card__inner">
+
+          <div class="gear-card__face gear-card__face--front">
+            <div class="gear-card__info">
+              <div class="gear-card__eyebrow">A COMBAT PROJECT</div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PARTICIPANT:</span>
+                <span>Jaeden Lim,<br/>Heavyweight</span>
+              </div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PRODUCT:</span>
+                <span>TRX_01 Headgear in<br/>Matte Mesh, Onyx</span>
+              </div>
+            </div>
+            <div class="gear-card__media">
+              <image-slot id="gear-02a" shape="rect" src="uploads/%EC%9B%B9%EB%A0%88%ED%8D%BC1.jpg" placeholder="Drop front photo" style="background:transparent;"></image-slot>
+            </div>
+            <a href="#" class="gear-card__brand" aria-label="BOX:ON">
+              <img src="assets/logo-symbol.png" class="gear-card__sym" alt="" />
+              <img src="assets/logo-type.png" class="gear-card__type" alt="BOX:ON" />
+            </a>
+          </div>
+
+          <div class="gear-card__face gear-card__face--back">
+            <div class="gear-card__info gear-card__info--inverse">
+              <div class="gear-card__eyebrow">REVERSE / DETAIL VIEW</div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">SPEC:</span>
+                <span>Foam-tech, full-face coverage</span>
+              </div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PRICE:</span>
+                <span>USD 180 / RD 01</span>
+              </div>
+            </div>
+            <div class="gear-card__media">
+              <image-slot id="gear-02b" shape="rect" src="uploads/%EC%9B%B9%EB%A0%88%ED%8D%BC2.jpg" placeholder="Drop reverse photo" style="background:transparent;"></image-slot>
+            </div>
+            <a href="#" class="gear-card__cta">VIEW PRODUCT <span aria-hidden="true">→</span></a>
+          </div>
+
+        </div>
+      </article>
+
+      <article class="gear-card" data-card="03">
+        <div class="gear-card__inner">
+
+          <div class="gear-card__face gear-card__face--front">
+            <div class="gear-card__info">
+              <div class="gear-card__eyebrow">A COMBAT PROJECT</div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PARTICIPANT:</span>
+                <span>Sora Han,<br/>Head Coach</span>
+              </div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PRODUCT:</span>
+                <span>Corner_Jacket in Down +<br/>Reflective Shell, Bone</span>
+              </div>
+            </div>
+            <div class="gear-card__media">
+              <image-slot id="gear-03a" shape="rect" src="uploads/12.png" placeholder="Drop front photo" style="background:transparent;"></image-slot>
+            </div>
+            <a href="#" class="gear-card__brand" aria-label="BOX:ON">
+              <img src="assets/logo-symbol.png" class="gear-card__sym" alt="" />
+              <img src="assets/logo-type.png" class="gear-card__type" alt="BOX:ON" />
+            </a>
+          </div>
+
+          <div class="gear-card__face gear-card__face--back">
+            <div class="gear-card__info gear-card__info--inverse">
+              <div class="gear-card__eyebrow">REVERSE / DETAIL VIEW</div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">SPEC:</span>
+                <span>650-fill down, sealed seams</span>
+              </div>
+              <div class="gear-card__line">
+                <span class="gear-card__k">PRICE:</span>
+                <span>USD 620 / RD 01</span>
+              </div>
+            </div>
+            <div class="gear-card__media">
+              <image-slot id="gear-03b" shape="rect" src="uploads/%EC%9B%B9%EB%A0%88%ED%8D%BC1.jpg" placeholder="Drop reverse photo" style="background:transparent;"></image-slot>
+            </div>
+            <a href="#" class="gear-card__cta">VIEW PRODUCT <span aria-hidden="true">→</span></a>
+          </div>
+
+        </div>
+      </article>
+
+    </section>
+
+    <!-- SEE THE FIT row — black band under cards -->
+    <section class="gear-links">
+      <a href="#" class="gear-links__link">SEE THE FIT</a>
+      <a href="#" class="gear-links__link">SEE THE FIT</a>
+      <a href="#" class="gear-links__link">SEE THE FIT</a>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="foot">
+    <div class="foot__brand">
+      <img src="assets/logo-type.png" alt="BOX:ON" />
+      <p>BOX:ON — a wearable combat layer. Gloves up, screen on. Built in Seoul, fought in everywhere.</p>
+    </div>
+    <div class="foot__col">
+      <h4>Shop</h4>
+      <a href="gear.html">Gloves</a>
+      <a href="gear.html">Headgear</a>
+      <a href="gear.html">Apparel</a>
+      <a href="gear.html">New Drop</a>
+    </div>
+    <div class="foot__col">
+      <h4>Inside</h4>
+      <a href="experience.html">Training</a>
+      <a href="index.html#about">About</a>
+      <a href="#">Journal</a>
+      <a href="#">Lookbook</a>
+    </div>
+    <div class="foot__col">
+      <h4>Contact</h4>
+      <a href="mailto:hello@boxon.gg">hello@boxon.gg</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Newsletter</a>
+    </div>
+    <div class="foot__legal">
+      <span>© 2026 BOX:ON. All rights reserved.</span>
+      <span>BUILD 2026.05.15-RC1</span>
+    </div>
+  </footer>
+
+  <script>
+    // touch-friendly flip toggle for the gear cards
+    document.querySelectorAll(".gear-card").forEach((card) => {
+      card.addEventListener("click", (e) => {
+        // don't toggle if clicking a real link inside the card
+        if (e.target.closest("a")) return;
+        card.classList.toggle("is-flipped");
+      });
+    });
+  </script>
+
+</body>
+</html>
