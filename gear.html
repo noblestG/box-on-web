@@ -250,6 +250,34 @@
       });
       card.addEventListener("mouseleave", () => setActive(0));
     });
+
+    // Subtle parallax on each card's bottom-left brand logo as the
+    // card scrolls through the viewport — translates ±14px end-to-end.
+    (function brandParallax() {
+      const cards = document.querySelectorAll(".gear-card");
+      if (cards.length === 0) return;
+      let queued = false;
+      const update = () => {
+        queued = false;
+        const vh = window.innerHeight;
+        cards.forEach((card) => {
+          const brand = card.querySelector(".gear-card__brand");
+          if (!brand) return;
+          const rect = card.getBoundingClientRect();
+          const center = rect.top + rect.height / 2;
+          const progress = (center - vh / 2) / (vh / 2);
+          const clamped = Math.max(-1, Math.min(1, progress));
+          brand.style.transform = `translateY(${(-clamped * 14).toFixed(2)}px)`;
+        });
+      };
+      window.addEventListener("scroll", () => {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(update);
+      }, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    })();
   </script>
 
 </body>
