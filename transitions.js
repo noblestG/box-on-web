@@ -78,10 +78,26 @@
     if (e.persisted) playEntry();
   });
 
+  // Reveal-on-scroll for the ABOUT poster strip. Click → smooth scroll
+  // (CSS scroll-behavior) → IntersectionObserver fires → slide-up animation.
+  function initStripReveal() {
+    const strip = document.querySelector(".strip");
+    if (!strip) return;
+    const reveal = () => strip.classList.add("is-revealed");
+    if (!("IntersectionObserver" in window)) { reveal(); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { reveal(); io.disconnect(); }
+      });
+    }, { threshold: 0.22 });
+    io.observe(strip);
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => { bindLinks(); playEntry(); });
+    document.addEventListener("DOMContentLoaded", () => { bindLinks(); playEntry(); initStripReveal(); });
   } else {
     bindLinks();
     playEntry();
+    initStripReveal();
   }
 })();
