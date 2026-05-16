@@ -91,7 +91,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   padding: 22px 36px;
   background: linear-gradient(to bottom, rgba(6,6,6,0.85), rgba(6,6,6,0));
   backdrop-filter: blur(6px);
+  transition: top 280ms cubic-bezier(.16,.84,.32,1);
 }
+body.is-scrolled .nav { top: 0; }
 .nav__brand {
   display: flex;
   align-items: center;

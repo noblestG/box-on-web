@@ -78,6 +78,17 @@
     if (e.persisted) playEntry();
   });
 
+  // Toggle body.is-scrolled once the marquee has effectively scrolled away,
+  // so .nav can slide up to the top.
+  function initScrollState() {
+    const THRESHOLD = 24;
+    const apply = () => {
+      document.body.classList.toggle("is-scrolled", window.scrollY > THRESHOLD);
+    };
+    window.addEventListener("scroll", apply, { passive: true });
+    apply();
+  }
+
   // Reveal-on-scroll for the ABOUT poster strip. Click → smooth scroll
   // (CSS scroll-behavior) → IntersectionObserver fires → slide-up animation.
   function initStripReveal() {
@@ -94,10 +105,11 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => { bindLinks(); playEntry(); initStripReveal(); });
+    document.addEventListener("DOMContentLoaded", () => { bindLinks(); playEntry(); initStripReveal(); initScrollState(); });
   } else {
     bindLinks();
     playEntry();
     initStripReveal();
+    initScrollState();
   }
 })();
